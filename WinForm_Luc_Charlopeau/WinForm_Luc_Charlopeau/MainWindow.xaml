@@ -1,0 +1,63 @@
+﻿<Window x:Class="WinForm_Luc_Charlopeau.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WinForm_Luc_Charlopeau"
+        xmlns:viewModel="clr-namespace:WinForm_Luc_Charlopeau.MVVM.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="920">
+
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+
+    <Border Background="#272537"
+            CornerRadius="20">
+
+        <Grid Margin="0,0,696,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Luxchar NASA GUI"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       FontSize="22"
+                       Margin="20,0,0,0" Width="180"/>
+
+            <StackPanel Grid.Row="1" Margin="0,0,-25,0">
+
+                <RadioButton Content="Home"
+                         Height="50"
+                         Foreground="white"
+                         FontSize="14"
+                         Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="True"
+                             Command="{Binding HomeViewCommand}"/>
+
+                <RadioButton Content="Image of the Day"
+                         Height="50"
+                         Foreground="white"
+                         FontSize="14"
+                         Style="{StaticResource MenuButtonTheme}"
+                    Command="{Binding DiscoveryViewCommand}"/>
+
+
+            </StackPanel>
+
+
+            <ContentControl Grid.Row="1"
+                            Margin="241,0,-733,0"
+                Content="{Binding CurrentView}"/>
+
+        </Grid>
+    </Border>
+
+</Window>

@@ -1,0 +1,26 @@
+﻿<Application x:Class="WinForm_Luc_Charlopeau.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WinForm_Luc_Charlopeau"
+             xmlns:viewModel="clr-namespace:WinForm_Luc_Charlopeau.MVVM.ViewModel"
+             xmlns:view="clr-namespace:WinForm_Luc_Charlopeau.MVVM.View"
+             xmlns:viewAPI="clr-namespace:WinForm_Luc_Charlopeau.API"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/TextboxTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:DiscoveryViewModel}">
+                <view:DiscoveryView/>
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
